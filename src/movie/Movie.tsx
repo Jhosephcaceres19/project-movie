@@ -5,23 +5,22 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from 'swiper/modules';
-
+import MovieService from './services/MovieService';
 export const Movie = () => {
   const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    const movietop = async () => {
+      try {
+        const movies = await MovieService.viewMoviePopular();
+        setMovies(movies);
+      } catch (error) {
+        console.error('La petición falló', error);
+      }
+    };
+    movietop();
+  }, []);
 
-  useEffect(()=>{
-    fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=f3ab1eb0e744146be3466d76cdf2def4"
-    )
-    .then((resp) => resp.json())
-    .then((data) =>{
-      console.log({data});
-      setMovies(data.results);
-    })
-    .catch(() =>{
-      console.error('la peticion fallo')
-    });
-  },[]);
+
   return (
     <div className="app-main">
       <Navbar />

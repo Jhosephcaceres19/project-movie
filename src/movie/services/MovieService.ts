@@ -1,12 +1,13 @@
 import api from "../../api/api";
 
 const viewMoviePopular = async () => {
-  const response = await api.get(`/movie/popular`);
-  return response.data;
+    const response = await api.get(`/movie/top_rated`);
+    console.log(response.data.results)
+    return response.data.results;
 };
 const detailMovie = async (id) =>{
   const response = await api.get(`/movie/${id}`)
-  return response.data;
+  return response.data.results;
 }
 const searchMovie = async (query) => {
   const response = await api.get('/search/movie',{
@@ -14,7 +15,7 @@ const searchMovie = async (query) => {
       query: query
     }
   })
-  return response.data;
+  return response.data.results;
 }
 
 export default {

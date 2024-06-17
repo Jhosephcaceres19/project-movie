@@ -2,5 +2,5 @@
   @apply  text-white bg-gradient-to-b from-black to-cyan-900 h-screen 
 }
 .api-app{
-  @apply flex  flex-col  pt-40 items-center
+  @apply flex  flex-col  pt-40 items-center text-white bg-gradient-to-b from-black to-cyan-900
 }

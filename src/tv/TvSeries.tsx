@@ -5,22 +5,21 @@ import { Navigation, Pagination } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import TvService from './services/TvService';
 
 export const TvSeries = () => {
   const [series, setSeries] = useState([]);
 
   useEffect(()=>{
-    fetch(
-      "https://api.themoviedb.org/3/tv/popular?api_key=f3ab1eb0e744146be3466d76cdf2def4"
-    )
-    .then((resp) =>resp.json())
-    .then((data) =>{
-      console.log({data})
-      setSeries(data.results)
-    })
-    .catch(()=>{
-      console.error('la peticion falo')
-    })
+    const tvpopular = async() =>{
+      try{
+        const tv = await TvService.viewSeriesPopular();
+        setSeries(tv);
+      }catch (error){
+        console.error('la peticion fallo',error);
+      }
+    }
+    tvpopular();
   },[])
   return (
     <div className="app-main">

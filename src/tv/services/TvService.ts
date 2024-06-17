@@ -2,7 +2,7 @@ import api from "../../api/api";
 
 const viewSeriesPopular = async()=>{
   const response = await api.get('/tv/popular')
-  return response.data;
+  return response.data.results;
 }
 const detailSerie = async(id) =>{
   const response =  await api.get(`/tv/${id}`)

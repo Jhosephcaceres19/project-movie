@@ -1,9 +1,9 @@
-.app-main{
-  @apply  text-white bg-gradient-to-b from-black to-cyan-900 h-screen 
+.app-main {
+  @apply text-white bg-gradient-to-b from-black to-cyan-900 h-screen;
 }
-.api-app{
-  @apply flex  flex-col  pt-40 items-center text-white bg-gradient-to-b from-black to-cyan-900
+.api-app {
+  @apply flex  flex-col  pt-40 items-center text-white bg-gradient-to-b from-black to-cyan-900;
 }
-.img{
-  @apply border-solid border-2 border-white mx-auto rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-110
+.img {
+  @apply border-solid border-2 border-white mx-auto rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-110;
 }

@@ -1,38 +1,38 @@
-import { useEffect, useState } from 'react'
-import { Navbar } from '../view/navbar/Navbar'
-import { Swiper,SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { useEffect, useState } from "react";
+import { Navbar } from "../view/navbar/Navbar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import TvService from './services/TvService';
+import TvService from "./services/TvService";
 
 export const TvSeries = () => {
   const [series, setSeries] = useState([]);
   const [familytv, setFamilytv] = useState([]);
   const [kids, setKids] = useState([]);
-  const [animation, setAnimation]=useState([]);
-  const [crime, setCrime]= useState([]);
+  const [animation, setAnimation] = useState([]);
+  const [crime, setCrime] = useState([]);
 
-  useEffect(()=>{
-    const tvpopular = async() =>{
-      try{
+  useEffect(() => {
+    const tvpopular = async () => {
+      try {
         const tv = await TvService.viewSeriesPopular();
-        const family = await TvService.genresfamily('10751');
-        const kids = await TvService.genreskids('10762')
-        const animation = await TvService.genresanimation('16')
-        const crime = await TvService.genrescrime('80');
+        const family = await TvService.genresfamily("10751");
+        const kids = await TvService.genreskids("10762");
+        const animation = await TvService.genresanimation("16");
+        const crime = await TvService.genrescrime("80");
         setSeries(tv);
-        setFamilytv(family)
-        setKids(kids)
-        setAnimation(animation)
-        setCrime(crime)
-      }catch (error){
-        console.error('la peticion fallo',error);
+        setFamilytv(family);
+        setKids(kids);
+        setAnimation(animation);
+        setCrime(crime);
+      } catch (error) {
+        console.error("la peticion fallo", error);
       }
-    }
+    };
     tvpopular();
-  },[])
+  }, []);
   return (
     <div className="app-main">
       <Navbar />
@@ -48,13 +48,16 @@ export const TvSeries = () => {
           >
             {series.map(({ id, name, backdrop_path }) => (
               <SwiperSlide key={id} className="mx-5">
-                <div className="movie-slide text-center mb-10">
-                  <h3 className="mb-4">Titulo: {name}</h3>
+                <br />
+                <div className="movie-slide text-center mb-10 relative group">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
                     alt={name}
                     className="img"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <h3 className="text-white text-2xl font-bold">{name}</h3>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -69,13 +72,16 @@ export const TvSeries = () => {
           >
             {familytv.map(({ id, name, backdrop_path }) => (
               <SwiperSlide key={id} className="mx-5">
-                <div className="movie-slide text-center mb-10">
-                  <h3 className="mb-4">Titulo: {name}</h3>
+                <br />
+                <div className="movie-slide text-center mb-10 relative group">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
                     alt={name}
                     className="img"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <h3 className="text-white text-2xl font-bold">{name}</h3>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -90,13 +96,16 @@ export const TvSeries = () => {
           >
             {crime.map(({ id, name, backdrop_path }) => (
               <SwiperSlide key={id} className="mx-5">
-                <div className="movie-slide text-center mb-10">
-                  <h3 className="mb-4">Titulo: {name}</h3>
+                <br />
+                <div className="movie-slide text-center mb-10 relative group">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
                     alt={name}
                     className="img"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <h3 className="text-white text-2xl font-bold">{name}</h3>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -111,13 +120,16 @@ export const TvSeries = () => {
           >
             {kids.map(({ id, name, backdrop_path }) => (
               <SwiperSlide key={id} className="mx-5">
-                <div className="movie-slide text-center mb-10">
-                  <h3 className="mb-4">Titulo: {name}</h3>
+                <br />
+                <div className="movie-slide text-center mb-10 relative group">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
                     alt={name}
                     className="img"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <h3 className="text-white text-2xl font-bold">{name}</h3>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -132,13 +144,16 @@ export const TvSeries = () => {
           >
             {animation.map(({ id, name, backdrop_path }) => (
               <SwiperSlide key={id} className="mx-5">
-                <div className="movie-slide text-center mb-10">
-                  <h3 className="mb-4">Titulo: {name}</h3>
+                <br />
+                <div className="movie-slide text-center mb-10 relative group">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
                     alt={name}
                     className="img"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <h3 className="text-white text-2xl font-bold">{name}</h3>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -147,4 +162,4 @@ export const TvSeries = () => {
       </div>
     </div>
   );
-}
+};

@@ -5,7 +5,11 @@ const viewAllNow = async()=>{
     return response.data.results;
 }
 const viewAll = async()=>{
-    const response = await api.get('/movie/popular')
+    const response = await api.get(`/movie/popular`,{
+        params:{
+            page:2
+        }
+    })
     return response.data.results;
 }
 const latest = async()=>{

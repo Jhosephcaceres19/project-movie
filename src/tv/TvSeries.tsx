@@ -9,12 +9,24 @@ import TvService from './services/TvService';
 
 export const TvSeries = () => {
   const [series, setSeries] = useState([]);
+  const [familytv, setFamilytv] = useState([]);
+  const [kids, setKids] = useState([]);
+  const [animation, setAnimation]=useState([]);
+  const [crime, setCrime]= useState([]);
 
   useEffect(()=>{
     const tvpopular = async() =>{
       try{
         const tv = await TvService.viewSeriesPopular();
+        const family = await TvService.genresfamily('10751');
+        const kids = await TvService.genreskids('10762')
+        const animation = await TvService.genresanimation('16')
+        const crime = await TvService.genrescrime('80');
         setSeries(tv);
+        setFamilytv(family)
+        setKids(kids)
+        setAnimation(animation)
+        setCrime(crime)
       }catch (error){
         console.error('la peticion fallo',error);
       }
@@ -25,29 +37,113 @@ export const TvSeries = () => {
     <div className="app-main">
       <Navbar />
       <div className="api-app">
-        <div className="w-[1400px]">
+        <div className="w-[1600px]">
+          SERIES DE TV:
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={30}
-            slidesPerView={3}
+            slidesPerView={5}
             navigation
             pagination={{ clickable: true }}
           >
             {series.map(({ id, name, backdrop_path }) => (
-              <SwiperSlide>
-                <div className='movie-slide text-center'>
-                  {name}
+              <SwiperSlide key={id} className="mx-5">
+                <div className="movie-slide text-center mb-10">
+                  <h3 className="mb-4">Titulo: {name}</h3>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
                     alt={name}
-                    className="border-solid border-2 border-white"
+                    className="img"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          SERIES PARA VER EN FAMILIA:
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={5}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            {familytv.map(({ id, name, backdrop_path }) => (
+              <SwiperSlide key={id} className="mx-5">
+                <div className="movie-slide text-center mb-10">
+                  <h3 className="mb-4">Titulo: {name}</h3>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+                    alt={name}
+                    className="img"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          SERIES DE CRIMEN:
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={5}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            {crime.map(({ id, name, backdrop_path }) => (
+              <SwiperSlide key={id} className="mx-5">
+                <div className="movie-slide text-center mb-10">
+                  <h3 className="mb-4">Titulo: {name}</h3>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+                    alt={name}
+                    className="img"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          SERIES PARA NINOS:
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={5}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            {kids.map(({ id, name, backdrop_path }) => (
+              <SwiperSlide key={id} className="mx-5">
+                <div className="movie-slide text-center mb-10">
+                  <h3 className="mb-4">Titulo: {name}</h3>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+                    alt={name}
+                    className="img"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          SERIES DE ANIMACION:
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={5}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            {animation.map(({ id, name, backdrop_path }) => (
+              <SwiperSlide key={id} className="mx-5">
+                <div className="movie-slide text-center mb-10">
+                  <h3 className="mb-4">Titulo: {name}</h3>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+                    alt={name}
+                    className="img"
                   />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import path from "path"
 import App from "../App"
 import { createBrowserRouter } from "react-router-dom"
 import { RouterProvider } from "react-router-dom"

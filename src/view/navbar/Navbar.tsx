@@ -14,7 +14,7 @@ export const Navbar = () => {
           <Link to="/">Inicio</Link>
           <Link to="/serie">Serie</Link>
           <Link to="/pelicula">Pelicula</Link>
-          <Link to="/">Novedades populares</Link>
+          <Link to="/news">Novedades populares</Link>
         </div>
       </div>
       <div className="nav-input">

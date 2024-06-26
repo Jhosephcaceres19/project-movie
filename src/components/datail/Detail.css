@@ -1,0 +1,9 @@
+.detail-main{
+  @apply text-white bg-gradient-to-b from-black to-cyan-900 h-screen
+}
+.img-detail{
+  @apply pl-[900px] h-[905px]
+}
+.content-detail{
+  @apply bg-cyan-950/80 rounded-md w-[700px] absolute top-[390px] left-24 flex justify-center items-center p-4
+}

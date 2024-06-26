@@ -1,5 +1,6 @@
 import { data } from "autoprefixer";
 import api from "../../api/api";
+import { resolveObjectURL } from "buffer";
 
 const viewSeriesPopular = async()=>{
   const response = await api.get('/tv/popular')
@@ -7,7 +8,7 @@ const viewSeriesPopular = async()=>{
 }
 const detailSerie = async(id) =>{
   const response =  await api.get(`/tv/${id}`)
-  return response.data.results;
+  return response.data;
 }
 
 const genresfamily = async (id) => {
@@ -52,6 +53,7 @@ const searchSerie = async(query) =>{
   })
   return response.data;
 }
+
 
 
 export default{

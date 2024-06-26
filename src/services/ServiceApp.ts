@@ -17,8 +17,15 @@ const latest = async()=>{
     console.log(response.data.results);
     return response.data.results;
 }
+const viewDetail = async(id) =>{
+    const response =await api.get(`/movie/${id}`)
+    console.log('llego aqui')
+    console.log(response.data)
+    return response.data;
+}
 export default{
     viewAll,
     viewAllNow,
-    latest
+    latest,
+    viewDetail
 }

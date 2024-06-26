@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { NewsMovies } from "./NewsMovies";
+import { Link } from "react-router-dom";
 
 export const NewsMoviesList = ({ movies }) => {
   return (
@@ -18,8 +19,10 @@ export const NewsMoviesList = ({ movies }) => {
       >
         {movies.map(({ id, title, backdrop_path }) => (
           <SwiperSlide key={id} className="mx-5">
-            <br />
-            <NewsMovies id={id} backdrop_path={backdrop_path} title={title} />
+            <Link to={`/news/${id}`}>
+              <br />
+              <NewsMovies id={id} backdrop_path={backdrop_path} title={title} />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

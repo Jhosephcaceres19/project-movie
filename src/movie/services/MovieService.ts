@@ -7,7 +7,7 @@ const viewMoviePopular = async () => {
 };
 const detailMovie = async (id) =>{
   const response = await api.get(`/movie/${id}`)
-  return response.data.results;
+  return response.data;
 }
 const genresaction = async (id) =>{
   const response = await api.get(`/discover/movie`,{

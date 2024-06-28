@@ -17,6 +17,24 @@ const genresaction = async (id) =>{
   });
   return response.data.results;
 }
+const genresactiontwo = async (id) => {
+  const response = await api.get(`/discover/movie`, {
+    params: {
+      with_genres: id,
+      page:2
+    },
+  });
+  return response.data.results;
+};
+const genresactiontree = async (id) => {
+  const response = await api.get(`/discover/movie`, {
+    params: {
+      with_genres: id,
+      page:3
+    },
+  });
+  return response.data.results;
+};
 const genrehorror = async (id) =>{
   const response = await api.get(`/discover/movie`,{
     params:{
@@ -39,5 +57,7 @@ export default {
   detailMovie,
   searchMovie,
   genresaction,
-  genrehorror
+  genrehorror,
+  genresactiontwo,
+  genresactiontree
 };

@@ -8,13 +8,14 @@ import { Link } from "react-router-dom";
 
 export const AppMovieList = ({movies}) => {
   return (
-    <div className="w-[1600px]">
+    <div className="w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1700px]">
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={30}
-        slidesPerView={5}
+        spaceBetween={2}
+        slidesPerView={4}
         navigation
         pagination={{ clickable: true }}
+        
       >
         {movies.map(({ id, title, name, backdrop_path }) => (
           <SwiperSlide className="mx-5">

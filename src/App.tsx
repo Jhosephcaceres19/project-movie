@@ -8,6 +8,8 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [moviesnow, setMoviesnow] = useState([]);
   const [all, setAll] = useState([]);
+  const [viewone, setViewone] = useState([]);
+  const [viewtwo, setViewtwo] = useState([]);
 
   useEffect(() => {
     const allMovies = async () => {
@@ -18,6 +20,10 @@ function App() {
         setMoviesnow(allMoviesNow);
         const all = await ServiceApp.latest();
         setAll(all);
+        const viewone = await ServiceApp.viewAllOne();
+        setViewone(viewone)
+        const viewtwo = await ServiceApp.viewAllTwo();
+        setViewtwo(viewtwo)
       } catch (error) {
         console.error("la peticion fallo", error);
       }
@@ -33,6 +39,8 @@ function App() {
             <AppMovieList movies={movies}/>
             <AppMovieList movies={moviesnow}/>
             <AppMovieList movies={all}/>
+            <AppMovieList movies={viewone}/>
+            <AppMovieList movies={viewtwo}/>
           </div>
         </div>
       </div>

@@ -1,9 +1,12 @@
 .detail-main{
-  @apply text-white bg-gradient-to-b from-black to-cyan-900 h-screen
+  @apply text-white bg-gradient-to-b from-black to-cyan-900 
 }
 .img-detail{
-  @apply pl-[900px] h-[905px]
+  @apply hidden lg:flex xl:h-[905px] 2xl:flex 2xl:h-[925px]
+}
+.relative{
+  @apply flex flex-row 2xl:justify-around items-center justify-center lg:justify-around xl:justify-around mt-20
 }
 .content-detail{
-  @apply bg-cyan-950/80 rounded-md w-[700px] absolute top-[390px] left-24 flex justify-center items-center p-4
+  @apply   w-[350px] 2xl:w-[700px]  flex flex-col  h-auto items-center justify-center 
 }

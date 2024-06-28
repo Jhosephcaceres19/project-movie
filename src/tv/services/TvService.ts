@@ -1,9 +1,7 @@
-import { data } from "autoprefixer";
 import api from "../../api/api";
-import { resolveObjectURL } from "buffer";
 
 const viewSeriesPopular = async()=>{
-  const response = await api.get('/tv/popular')
+  const response = await api.get('/tv/top_rated')
   return response.data.results;
 }
 const detailSerie = async(id) =>{
@@ -53,6 +51,11 @@ const searchSerie = async(query) =>{
   })
   return response.data;
 }
+const viewVideo = async (id) =>{
+  const response = await api.get(`/tv/${id}/videos`)
+  console.log('esto son los videos',response.data.results)
+  return response.data.results[0]
+}
 
 
 
@@ -63,5 +66,6 @@ export default{
   genresfamily,
   genreskids,
   genresanimation,
-  genrescrime
+  genrescrime,
+  viewVideo
 };

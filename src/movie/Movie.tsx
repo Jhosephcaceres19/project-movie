@@ -6,6 +6,8 @@ export const Movie = () => {
   const [movies, setMovies] = useState([]);
   const [action, setAction] = useState([]);
   const [horror, setHorror] = useState([]);
+  const [actiontwo, setActiontwo] = useState([]);
+  const [actiontree, setActiontree] = useState([]);
 
   useEffect(() => {
     const movietop = async () => {
@@ -13,9 +15,13 @@ export const Movie = () => {
         const movies = await MovieService.viewMoviePopular();
         const action = await MovieService.genresaction("28");
         const horror = await MovieService.genrehorror("27");
+        const actiontwo = await MovieService.genresactiontwo("28");
+        const actiontree = await MovieService.genresactiontree("28");
         setMovies(movies);
         setAction(action);
         setHorror(horror);
+        setActiontwo(actiontwo);
+        setActiontree(actiontree);
       } catch (error) {
         console.error("La petición falló", error);
       }
@@ -29,6 +35,8 @@ export const Movie = () => {
       <div className="api-app">
         <MovieList movie={movies}/>
         <MovieList movie={action}/>
+        <MovieList movie={actiontwo}/>
+        <MovieList movie={actiontree}/>
         <MovieList movie={horror}/>
       </div>
     </div>

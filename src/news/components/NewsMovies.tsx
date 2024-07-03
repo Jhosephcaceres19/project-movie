@@ -3,7 +3,7 @@ import React from "react";
 
 export const NewsMovies = ({ backdrop_path, title }) => {
   return (
-    <div className="movie-slide text-center mb-10 sm:mb-10 xl:mb-10 relative group">
+    <div className="movie-slide text-center mb-10 sm:mb-10 xl:mb-10 group">
       <img
         src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
         alt={title}

@@ -1,10 +1,12 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { AppMovieProps } from "../interfaces/Movie";
 
-export const AppMovie = ({  title, name, backdrop_path }) => {
+
+export const AppMovie: React.FC<AppMovieProps> = ({  title, name, backdrop_path }) => {
   return (
-    <div className="movie-slide text-center mb-10 sm:mb-10 xl:mb-10 relative group">
+    <div className="movie-slide py-8 text-center  sm:mb-10 xl:mb-10 group">
       <img
         src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
         alt={title}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../view/navbar/Navbar";
 import TvService from "./services/TvService";
 import { TvSeriesList } from "./components/TvSeriesList";
+import { useSearch } from "../view/provider/searchContext";
 
 export const TvSeries = () => {
   const [series, setSeries] = useState([]);
@@ -9,6 +10,8 @@ export const TvSeries = () => {
   const [kids, setKids] = useState([]);
   const [animation, setAnimation] = useState([]);
   const [crime, setCrime] = useState([]);
+  const { searchResults } = useSearch();
+
 
   useEffect(() => {
     const tvpopular = async () => {
@@ -33,11 +36,37 @@ export const TvSeries = () => {
     <div className="app-main">
       <Navbar />
       <div className="api-app">
-        <TvSeriesList tv={series}/>
-        <TvSeriesList tv={familytv}/>
-        <TvSeriesList tv={kids}/>
-        <TvSeriesList tv={animation}/>
-        <TvSeriesList tv={crime}/>
+        <div>
+          {searchResults.length > 0 ? (
+            <>
+              <div className="text-xl"> Resultados de Busqueda</div>
+              <TvSeriesList tv={searchResults}/>
+              <div className="text-xl">Tv Series:</div>
+              <TvSeriesList tv={series} />
+              <div className="text-xl">Tv Series para ver en familia:</div>
+              <TvSeriesList tv={familytv} />
+              <div className="text-xl">Tv Series de ninos:</div>
+              <TvSeriesList tv={kids} />
+              <div className="text-xl">Tv Series de anime:</div>
+              <TvSeriesList tv={animation} />
+              <div className="text-xl">Tv Series de criminal:</div>
+              <TvSeriesList tv={crime} />
+            </>
+          ) : (
+            <>
+              <div className="text-xl">Tv Series:</div>
+              <TvSeriesList tv={series} />
+              <div className="text-xl">Tv Series para ver en familia:</div>
+              <TvSeriesList tv={familytv} />
+              <div className="text-xl">Tv Series de ninos:</div>
+              <TvSeriesList tv={kids} />
+              <div className="text-xl">Tv Series de anime:</div>
+              <TvSeriesList tv={animation} />
+              <div className="text-xl">Tv Series de criminal:</div>
+              <TvSeriesList tv={crime} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

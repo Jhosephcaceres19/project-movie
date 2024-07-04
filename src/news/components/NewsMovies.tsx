@@ -1,7 +1,6 @@
 // NewsMovies.js
-import React from "react";
-
-export const NewsMovies = ({ backdrop_path, title }) => {
+import { NewsMovieProps } from "../interfaces/Newsmovie";
+export const NewsMovies: React.FC<NewsMovieProps> = ({ backdrop_path, title }) => {
   return (
     <div className="movie-slide text-center mb-10 sm:mb-10 xl:mb-10 group">
       <img

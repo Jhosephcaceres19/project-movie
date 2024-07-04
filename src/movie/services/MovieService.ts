@@ -5,11 +5,11 @@ const viewMoviePopular = async () => {
     console.log(response.data.results)
     return response.data.results;
 };
-const detailMovie = async (id) =>{
+const detailMovie = async (id:number) =>{
   const response = await api.get(`/movie/${id}`)
   return response.data;
 }
-const genresaction = async (id) =>{
+const genresaction = async (id:string) =>{
   const response = await api.get(`/discover/movie`,{
     params:{
       with_genres:id,
@@ -17,7 +17,7 @@ const genresaction = async (id) =>{
   });
   return response.data.results;
 }
-const genresactiontwo = async (id) => {
+const genresactiontwo = async (id:string) => {
   const response = await api.get(`/discover/movie`, {
     params: {
       with_genres: id,
@@ -26,7 +26,7 @@ const genresactiontwo = async (id) => {
   });
   return response.data.results;
 };
-const genresactiontree = async (id) => {
+const genresactiontree = async (id:string) => {
   const response = await api.get(`/discover/movie`, {
     params: {
       with_genres: id,
@@ -35,7 +35,7 @@ const genresactiontree = async (id) => {
   });
   return response.data.results;
 };
-const genrehorror = async (id) =>{
+const genrehorror = async (id:string) =>{
   const response = await api.get(`/discover/movie`,{
     params:{
       with_genres:id
@@ -43,7 +43,7 @@ const genrehorror = async (id) =>{
   });
   return response.data.results;
 }
-const searchMovie = async (query) => {
+const searchMovie = async (query:number) => {
   const response = await api.get('/search/movie',{
     params:{
       query: query

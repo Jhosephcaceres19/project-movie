@@ -3,21 +3,30 @@ import ServiceApp from "../../services/ServiceApp";
 import { Navbar } from "../../view/navbar/Navbar";
 import { useParams } from "react-router-dom";
 import "./Detail.css";
+import { MovieDetail } from "../../interfaces/Movie";
 
-export const Detail = () => {
-  const { id } = useParams();
-  const [detail, setDetail] = useState({});
-  const [video, setVideo] = useState(null);
+export const Detail:React.FC= () => {
+  const { id } = useParams<{id:string}>();
+  const [detail, setDetail] = useState<MovieDetail>({
+    title: "",
+    overview: "",
+    release_date: "",
+    genres: [],
+    poster_path: "",
+  });
+  const [video, setVideo] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await ServiceApp.viewDetail(id);
-        console.log("Detail data: ", data);
-        const videoData = await ServiceApp.viewVideo(id);
-        console.log("Video data: ", videoData);
-        setDetail(data);
-        setVideo(videoData);
+        if(id){
+          const data = await ServiceApp.viewDetail(id);
+          console.log("Detail data: ", data);
+          const videoData = await ServiceApp.viewVideo(id);
+          console.log("Video data: ", videoData);
+          setDetail(data);
+          setVideo(videoData);
+        }
       } catch (error) {
         console.log("Error al conectar", error);
       }

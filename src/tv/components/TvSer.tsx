@@ -1,6 +1,7 @@
+import { tv } from "../interfaces/tvinterface";
 
 
-export const TvSer = ({backdrop_path, title, name}) => {
+export const TvSer: React.FC<tv> = ({backdrop_path, title, name}) => {
   return (
     <div className="movie-slide text-center mb-10 sm:mb-10 xl:mb-10 group">
       <img

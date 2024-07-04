@@ -14,3 +14,15 @@ export interface AppMovieProps {
   name: string;
   backdrop_path: string;
 }
+
+export interface MovieDetail {
+  title: string;
+  overview: string;
+  release_date: string;
+  genres: { id: number; name: string }[];
+  poster_path: string;
+}
+export interface MovieLi{
+  title?:string;
+  backdrop_path:string;
+}

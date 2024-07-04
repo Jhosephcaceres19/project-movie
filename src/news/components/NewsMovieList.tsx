@@ -6,8 +6,9 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { NewsMovies } from "./NewsMovies";
 import { Link } from "react-router-dom";
+import { NewsMovieListProps } from "../interfaces/Newsmovie";
 
-export const NewsMoviesList = ({ movies }) => {
+export const NewsMoviesList: React.FC<NewsMovieListProps> = ({ movies }) => {
   return (
     <div className="w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1700px]">
       <Swiper

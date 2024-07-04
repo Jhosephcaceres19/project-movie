@@ -33,12 +33,12 @@ const latest = async () => {
   console.log(response.data.results);
   return response.data.results;
 };
-const viewDetail = async (id) => {
+const viewDetail = async (id:string) => {
   const response = await api.get(`/movie/${id}`);
   console.log(response.data);
   return response.data;
 };
-const viewVideo = async (id)=>{
+const viewVideo = async (id: string)=>{
   const response = await api.get(`/movie/${id}/videos`)
   console.log('los videos ',response.data.results[0])
   return response.data.results[0];

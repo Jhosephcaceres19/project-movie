@@ -1,6 +1,6 @@
-import React from 'react'
+import { MovieLiProps } from "../interfaces/Movies";
 
-export const MovieLi = ({title, backdrop_path}) => {
+export const MovieLi: React.FC<MovieLiProps>= ({title, backdrop_path}) => {
   return (
     <div className="movie-slide text-center mb-10 sm:mb-10 xl:mb-10 group">
       <img

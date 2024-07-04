@@ -5,8 +5,9 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { MovieLi } from "./MovieLi";
 import { Link } from "react-router-dom";
+import type{ MovieListProps } from "../interfaces/Movies";
 
-export const MovieList = ({movie}) => {
+export const MovieList: React.FC<MovieListProps> = ({movie}) => {
   return (
     <div className="w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1700px]">
       <Swiper

@@ -32,7 +32,7 @@ const viewsPopulartree = async () => {
   console.log(response.data.results);
   return response.data.results;
 };
-const genrehorror = async (id) => {
+const genrehorror = async (id:string) => {
   const response = await api.get(`/discover/movie`, {
     params: {
       with_genres: id,

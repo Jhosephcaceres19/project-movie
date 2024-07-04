@@ -10,7 +10,7 @@ export const Movie = () => {
   const [horror, setHorror] = useState([]);
   const [actiontwo, setActiontwo] = useState([]);
   const [actiontree, setActiontree] = useState([]);
-    const { searchResults } = useSearch();
+  const { searchResults } = useSearch();
 
 
   useEffect(() => {

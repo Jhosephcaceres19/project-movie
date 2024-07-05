@@ -41,7 +41,7 @@ export const Detail:React.FC= () => {
       <br />
       <div className="relative ">
         <div className="content-detail  ">
-          <div className="text-white text-center bg-cyan-950/80 rounded-2xl p-4 flex flex-col items-center justify-center">
+          <div className="text-white text-center bg-cyan-950/80 rounded-2xl p-4 flex flex-col items-center justify-center ">
             <div>
               <h2 className="xl:text-2xl 2xl:text-4xl font-bold">
                 {detail.title}

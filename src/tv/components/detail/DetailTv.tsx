@@ -5,7 +5,7 @@ import TvService from "../../services/TvService";
 import { tvDetailProps, videoDetailProps } from "../../interfaces/tvinterface";
 
 export const DetailTv: React.FC = () => {
-  const { id } = useParams();
+  const { id } = useParams<{id:string}>();
   const [detailtv, setDetailtv] = useState<tvDetailProps>({
     title:'',
     overview:'',
@@ -20,12 +20,14 @@ export const DetailTv: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true);
-        const data = await TvService.detailSerie(id);
-        setDetailtv(data);
-        const videoData = await TvService.viewVideo(id);
-        setVideo(videoData);
-        setIsLoading(false);
+        if(id){
+          setIsLoading(true);
+          const data = await TvService.detailSerie(id);
+          setDetailtv(data);
+          const videoData = await TvService.viewVideo(id);
+          setVideo(videoData);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.log("Error al conectar:", error);
       }

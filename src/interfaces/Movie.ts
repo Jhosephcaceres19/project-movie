@@ -26,3 +26,9 @@ export interface MovieLi{
   title?:string;
   backdrop_path:string;
 }
+
+export interface SearchResult{
+  id:number;
+  name:string;
+  title:string;
+}

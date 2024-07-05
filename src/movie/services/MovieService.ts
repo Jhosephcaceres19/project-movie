@@ -43,7 +43,7 @@ const genrehorror = async (id:string) =>{
   });
   return response.data.results;
 }
-const searchMovie = async (query:number) => {
+const searchMovie = async (query:string) => {
   const response = await api.get('/search/movie',{
     params:{
       query: query

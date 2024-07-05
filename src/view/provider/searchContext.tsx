@@ -1,9 +1,15 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+import { SearchResult } from "../../interfaces/Movie";
 
-const SearchContext = createContext();
+export interface SearchContextProps {
+  searchResults: SearchResult[];
+  setSearchResults: (results: SearchResult[]) => void;
+}
 
-export const SearchProvider = ({ children }) => {
-  const [searchResults, setSearchResults] = useState([]);
+const SearchContext = createContext<SearchContextProps | undefined>(undefined);
+
+export const SearchProvider = ({children}:{children: ReactNode}) => {
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
@@ -12,4 +18,10 @@ export const SearchProvider = ({ children }) => {
   );
 };
 
-export const useSearch = () => useContext(SearchContext);
+export const useSearch = () => {
+  const context = useContext(SearchContext);
+  if (!context) {
+    throw new Error("useSearch debe ser usado dentro de un SearchProvider");
+  }
+  return context;
+};

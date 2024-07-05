@@ -4,12 +4,12 @@ const viewSeriesPopular = async()=>{
   const response = await api.get('/tv/top_rated')
   return response.data.results;
 }
-const detailSerie = async(id:number) =>{
+const detailSerie = async(id:string) =>{
   const response =  await api.get(`/tv/${id}`)
   return response.data;
 }
 
-const genresfamily = async (id:number) => {
+const genresfamily = async (id:string) => {
   const response = await api.get(`/discover/tv`, {
     params: {
       with_genres: id,
@@ -17,7 +17,7 @@ const genresfamily = async (id:number) => {
   });
   return response.data.results;
 };
-const genreskids = async (id:number) => {
+const genreskids = async (id:string) => {
   const response = await api.get(`/discover/tv`, {
     params: {
       with_genres: id,
@@ -26,7 +26,7 @@ const genreskids = async (id:number) => {
   });
   return response.data.results;
 };
-const genresanimation = async(id:number) => {
+const genresanimation = async(id:string) => {
   const response = await api.get(`/discover/tv`,{
     params:{
       with_genres: id,
@@ -35,7 +35,7 @@ const genresanimation = async(id:number) => {
   })
   return response.data.results;
 }
-const genrescrime = async(id:number)=>{
+const genrescrime = async(id:string)=>{
   const response = await api.get(`/discover/tv`,{
     params:{
       with_genres:id,
@@ -43,7 +43,7 @@ const genrescrime = async(id:number)=>{
   });
   return response.data.results;
 }
-const searchSerie = async(query:number) =>{
+const searchSerie = async(query:string) =>{
   const response = await api.get(`/search/tv`,{
     params:{
       query:query
@@ -51,7 +51,7 @@ const searchSerie = async(query:number) =>{
   })
   return response.data;
 }
-const viewVideo = async (id:number) =>{
+const viewVideo = async (id:string) =>{
   const response = await api.get(`/tv/${id}/videos`)
   console.log('esto son los videos',response.data.results)
   return response.data.results[0]

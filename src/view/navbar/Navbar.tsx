@@ -2,21 +2,21 @@ import { icon } from "../../assets/icon/icon";
 import "./Navbar.css";
 import SideBar from "../sidebar/SideBar";
 import { useState } from "react";
- // Asegúrate de importar las funciones de búsqueda
 import { useSearch } from "../provider/searchContext";
 import TvService from "../../tv/services/TvService";
 import MovieService from "../../movie/services/MovieService";
+import { SearchResult } from "../../interfaces/Movie";
 
-export const Navbar = () => {
+export const Navbar:React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { setSearchResults } = useSearch();
 
-  const searchAll = async (term) => {
+  const searchAll = async (term:string) => {
     try {
       const response1 = await TvService.searchSerie(term); // Llama a la función de búsqueda de series
       const response2 = await MovieService.searchMovie(term); // Llama a la función de búsqueda de películas
 
-      let combinedResults = [];
+      let combinedResults: SearchResult[]=[];
 
       if (response1 && response1.results) {
         combinedResults = [...combinedResults, ...response1.results];
@@ -32,7 +32,7 @@ export const Navbar = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
     setSearchTerm(term);
     if (term) {

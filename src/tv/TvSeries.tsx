@@ -3,6 +3,7 @@ import { Navbar } from "../view/navbar/Navbar";
 import TvService from "./services/TvService";
 import { TvSeriesList } from "./components/TvSeriesList";
 import { useSearch } from "../view/provider/searchContext";
+import { Movie } from "../interfaces/Movie";
 
 export const TvSeries = () => {
   const [series, setSeries] = useState([]);
@@ -40,7 +41,7 @@ export const TvSeries = () => {
           {searchResults.length > 0 ? (
             <>
               <div className="text-xl"> Resultados de Busqueda</div>
-              <TvSeriesList tv={searchResults}/>
+              <TvSeriesList tv={searchResults as Movie[]}/>
               <div className="text-xl">Tv Series:</div>
               <TvSeriesList tv={series} />
               <div className="text-xl">Tv Series para ver en familia:</div>

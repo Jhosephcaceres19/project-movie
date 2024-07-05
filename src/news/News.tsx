@@ -4,6 +4,7 @@ import "./News.css";
 import NewsService from "./service/NewsService";
 import { NewsMoviesList } from "./components/NewsMovieList";
 import { useSearch } from "../view/provider/searchContext";
+import { Movie } from "../interfaces/Movie";
 
 export const News = () => {
   const [news, setNews] = useState([]);
@@ -41,7 +42,7 @@ export const News = () => {
           {searchResults.length > 0 ? (
             <>
               <div className="text-xl">Resultado de busqueda:</div>
-              <NewsMoviesList movies={searchResults} />
+              <NewsMoviesList movies={searchResults as Movie[]}/>
               <div className="text-xl">Nuevas peliculas:</div>
               <NewsMoviesList movies={news} />
               <div className="text-xl">Pelicula populares:</div>

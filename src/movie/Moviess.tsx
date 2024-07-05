@@ -3,8 +3,10 @@ import { Navbar } from "../view/navbar/Navbar";
 import MovieService from "./services/MovieService";
 import { MovieList } from "./components/MovieList";
 import { useSearch } from "../view/provider/searchContext";
+import { Movie } from "../interfaces/Movie";
 
-export const Movie = () => {
+
+export const Moviess = () => {
   const [movies, setMovies] = useState([]);
   const [action, setAction] = useState([]);
   const [horror, setHorror] = useState([]);
@@ -41,7 +43,7 @@ export const Movie = () => {
           {searchResults.length > 0 ? (
             <>
               <div className="text-xl">Resultado de busqueda</div>
-              <MovieList movie={searchResults} />
+              <MovieList movie={searchResults  as Movie[]} />
               <div className="text-xl">Mejores peliculas:</div>
               <MovieList movie={movies} />
               <div className="text-xl">Pelicula de accion:</div>

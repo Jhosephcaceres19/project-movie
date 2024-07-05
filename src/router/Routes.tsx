@@ -2,7 +2,7 @@ import App from "../App"
 import { createBrowserRouter } from "react-router-dom"
 import { RouterProvider } from "react-router-dom"
 import { TvSeries } from "../tv/TvSeries"
-import { Movie } from "../movie/Movie"
+import {  Moviess } from "../movie/Moviess"
 import { News } from "../news/News"
 import { Detail } from "../components/datail/Detail"
 import { DetailTv } from "../tv/components/detail/DetailTv"
@@ -23,7 +23,7 @@ const Routes = () =>{
     },
     {
       path: "/pelicula",
-      element: <Movie />,
+      element: <Moviess />,
     },
     {
       path: "/pelicula/:id",

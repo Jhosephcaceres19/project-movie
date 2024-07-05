@@ -1,5 +1,5 @@
 .detail-main{
-  @apply text-white bg-gradient-to-b from-black to-cyan-900 
+  @apply text-white bg-gradient-to-b from-black to-cyan-900 h-screen
 }
 .img-detail{
   @apply hidden lg:flex xl:h-[905px] 2xl:flex 2xl:h-[915px]

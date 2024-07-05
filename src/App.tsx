@@ -5,7 +5,7 @@ import "./App.css";
 import { Navbar } from "./view/navbar/Navbar";
 import ServiceApp from "./services/ServiceApp";
 import { AppMovieList } from "./components/AppMovieList";
-import { useSearch } from "./view/provider/searchContext";
+import { SearchContextProps, useSearch } from "./view/provider/searchContext";
 import { Movie } from "./interfaces/Movie";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   const [all, setAll] = useState<Movie[]>([]);
   const [viewone, setViewone] = useState<Movie[]>([]);
   const [viewtwo, setViewtwo] = useState<Movie[]>([]);
-  const { searchResults } = useSearch();
+  const { searchResults } = useSearch() as SearchContextProps;
 
   useEffect(() => {
     const allMovies = async () => {
@@ -41,7 +41,7 @@ function App() {
       <Navbar />
       <div className="api-app">
         <div>
-          {searchResults.length > 0 ? (
+          {searchResults && searchResults.length > 0 ? (
             <>
               <div className="text-xl">Resultados de Búsqueda:</div>
               <AppMovieList movies={searchResults as Movie[]} />

@@ -14,7 +14,7 @@ export interface tvDetail{
 export interface tvDetailProps{
   title:string;
   overview:string;
-  release_date:string;
+  first_air_date:string;
   genres:{id:number; name:string}[];
   poster_path:string;
   name:string;

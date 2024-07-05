@@ -1,5 +1,5 @@
 .detail-main{
-  @apply text-white bg-gradient-to-b from-black to-cyan-900 h-screen
+  @apply text-white bg-gradient-to-b from-black to-cyan-900 
 }
 .img-detail{
   @apply hidden lg:flex xl:h-[905px] 2xl:flex 2xl:h-[915px]
@@ -8,5 +8,5 @@
   @apply flex flex-row 2xl:justify-around items-center justify-center lg:justify-around xl:justify-around 
 }
 .content-detail{
-  @apply   w-[350px] 2xl:w-[700px]  flex flex-col  h-auto items-center justify-center 
+  @apply   w-[350px] 2xl:w-[700px]  flex flex-col h-screen items-center justify-center 
 }

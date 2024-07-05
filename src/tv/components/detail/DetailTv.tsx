@@ -9,7 +9,7 @@ export const DetailTv: React.FC = () => {
   const [detailtv, setDetailtv] = useState<tvDetailProps>({
     title:'',
     overview:'',
-    release_date:'',
+    first_air_date:'',
     genres:[],
     poster_path:'',
     name:'',
@@ -50,18 +50,20 @@ export const DetailTv: React.FC = () => {
       <div className="relative">
         <div className="content-detail">
           <div className="text-white text-center bg-cyan-950/80 rounded-2xl p-4 flex flex-col items-center justify-center">
-            <div>
-              <h2 className="text-4xl font-bold">{detailtv.title}</h2>
+            <div className="flex flex-col">
+              <h2 className="text-4xl xl:text-4xl 2xl:text-4xl font-bold">
+                {detailtv.name}
+              </h2>
               <p className="text-lg">
                 DETALLE: <br />
                 {detailtv.overview}
               </p>
-              <p className="text-lg">
+              <p className="xl:text-lg 2xl:text-lg">
                 <br />
                 FECHA DE LANZAMIENTO: <br />
-                {detailtv.release_date}{" "}
+                {detailtv.first_air_date}{" "}
               </p>
-              <p className="text-lg">
+              <p className="xl:text-lg 2xl:text-lg">
                 <br />
                 Géneros:{" "}
                 {detailtv.genres &&
@@ -75,8 +77,7 @@ export const DetailTv: React.FC = () => {
               {video && video.key && video.site === "YouTube" && (
                 <div className="video-container">
                   <iframe
-                    width="560"
-                    height="315"
+                    className="xl:w-[400px] xl:h-[200px] 2xl:w-[550px] 2xl:h-[300px]"
                     src={`https://www.youtube.com/embed/${video.key}`}
                     title={video.name}
                     frameBorder="0"

@@ -40,12 +40,13 @@ export const Detail:React.FC= () => {
       <Navbar />
       <br />
       <div className="relative ">
-        <div className="content-detail  ">
-          <div className="text-white text-center bg-cyan-950/80 rounded-2xl p-4 flex flex-col items-center justify-center ">
+        <div className="content-detail">
+          <div className="text-white  text-center bg-cyan-950/80 rounded-2xl p-4 flex flex-col items-center justify-center ">
             <div>
-              <h2 className="xl:text-2xl 2xl:text-4xl font-bold">
+              <h2 className="text-4xl xl:text-4xl 2xl:text-4xl font-bold">
                 {detail.title}
               </h2>
+              <br />
               <p className="text-lg">
                 DETALLE: <br />
                 {detail.overview}
@@ -55,7 +56,7 @@ export const Detail:React.FC= () => {
                 FECHA DE LANZAMIENTO: <br />
                 {detail.release_date}
               </p>
-              <p className="xl:text:lg 2xl:text-lg">
+              <p className="xl:text-lg 2xl:text-lg">
                 <br />
                 Géneros:{" "}
                 {detail.genres &&

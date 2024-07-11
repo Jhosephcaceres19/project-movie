@@ -10,10 +10,10 @@ import { tvlist } from "../interfaces/tvinterface";
 
 export const TvSeriesList: React.FC<tvlist> = ({ tv }) => {
   return (
-    <div className="w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1700px]">
+    <div className="flex w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1250px] 2xl:w-[1500px]">
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={2}
+        spaceBetween={1}
         slidesPerView={4}
         navigation
         pagination={{ clickable: true }}

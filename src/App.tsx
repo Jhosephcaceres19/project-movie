@@ -40,7 +40,7 @@ function App() {
     <div className="app-main">
       <Navbar />
       <div className="api-app">
-        <div>
+        <div className="">
           {searchResults && searchResults.length > 0 ? (
             <>
               <div className="text-xl">Resultados de Búsqueda:</div>

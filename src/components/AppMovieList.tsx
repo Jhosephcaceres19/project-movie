@@ -9,7 +9,7 @@ import { AppMovieListProps} from "../interfaces/Movie";
 
 export const AppMovieList:React.FC<AppMovieListProps> = ({movies}) => {
   return (
-    <div className="w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1700px]">
+    <div className="flex w-[350px] sm:w-[550px] md:w-[700px] lg:w-[900px] xl:w-[1250px] 2xl:w-[1500px]">
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={1}
@@ -19,7 +19,7 @@ export const AppMovieList:React.FC<AppMovieListProps> = ({movies}) => {
         
       >
         {movies.map(({ id, title, name, backdrop_path }) => (
-          <SwiperSlide className="ml-5">
+          <SwiperSlide className="mx-5">
             <div>
               <Link to={`/${id}`}>
                 <AppMovie

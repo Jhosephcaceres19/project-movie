@@ -1,8 +1,6 @@
-.app-main {
-  @apply text-white bg-gradient-to-b from-black to-cyan-900 h-screen;
-}
+
 .api-app {
-  @apply flex  flex-col  pt-20 items-center text-white bg-gradient-to-b from-black to-cyan-900;
+  @apply flex  flex-col pt-20 items-center text-white bg-gradient-to-b from-black to-cyan-900;
 }
 .img {
   @apply border-solid h-[150px] object-cover border-2 border-white rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-110 xl:h-auto;

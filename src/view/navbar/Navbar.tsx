@@ -51,7 +51,22 @@ export const Navbar:React.FC = () => {
             <img src={icon.netflix} alt="" className="w-[92px]" />
           </Link>
         </div>
+       
         <div className="nav-ul">
+          <div className="lg:flex  text-xl gap-4">
+            <Link to="/" className="">
+              Inicio{" "}
+            </Link>
+            <Link to="/serie" className="">
+              Serie
+            </Link>
+            <Link to="/pelicula" className="">
+              Pelicula
+            </Link>
+            <Link to="/news" className="">
+              Novedades populares
+            </Link>
+          </div>
           <div className="nav-input">
             <svg
               className="absolute text-slate-400 h-5 w-5"
@@ -72,7 +87,9 @@ export const Navbar:React.FC = () => {
               onChange={handleChange}
             />
           </div>
-          <SideBar />
+          <div className="lg:hidden">
+            <SideBar />
+          </div>
         </div>
       </div>
     </nav>

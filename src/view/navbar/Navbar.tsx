@@ -6,6 +6,7 @@ import { useSearch } from "../provider/searchContext";
 import TvService from "../../tv/services/TvService";
 import MovieService from "../../movie/services/MovieService";
 import { SearchResult } from "../../interfaces/Movie";
+import { Link } from "react-router-dom";
 
 export const Navbar:React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,7 +47,9 @@ export const Navbar:React.FC = () => {
     <nav className="navbar">
       <div className="nav-content-main">
         <div>
-          <img src={icon.netflix} alt="" className="w-[92px]" />
+          <Link to={"/"}>
+            <img src={icon.netflix} alt="" className="w-[92px]" />
+          </Link>
         </div>
         <div className="nav-ul">
           <div className="nav-input">
